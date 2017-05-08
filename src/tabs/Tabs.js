@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 class Tabs extends Component {
   render() {
     return (
       <div className="mdl-layout__tab-bar mdl-js-ripple-effect">
-        <a href="#scroll-tab-1" className="mdl-layout__tab is-active">Tab 1</a>
-        <a href="#scroll-tab-2" className="mdl-layout__tab">Tab 2</a>
-        <a href="#scroll-tab-3" className="mdl-layout__tab">Tab 3</a>
-        <a href="#scroll-tab-4" className="mdl-layout__tab">Tab 4</a>
-        <a href="#scroll-tab-5" className="mdl-layout__tab">Tab 5</a>
-        <a href="#scroll-tab-6" className="mdl-layout__tab">Tab 6</a>
+        {this.props.schedules.map((item, index) => {
+          return <a key={index} href={"#scroll-tab-" + index} className={"mdl-layout__tab " + (index === 0 ? 'is-active': '')}>{moment(item.date, 'YYYY/MM/DD').format('DD/MM')}</a>;
+        })}
       </div>
     );
   }

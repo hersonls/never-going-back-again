@@ -8,47 +8,36 @@ class Header extends Component {
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header className="mdl-layout__header">
           <div className="mdl-layout__header-row">
-            <span className="mdl-layout-title">Title</span>
+            <span className="mdl-layout-title">{this.props.currentEvent.name}</span>
           </div>
 
-          <Tabs />
+          <Tabs schedules={this.props.currentEvent.schedules} />
         </header>
 
         <div className="mdl-layout__drawer">
-          <span className="mdl-layout-title">Title</span>
+          <span className="mdl-layout-title">{this.props.currentEvent.name}</span>
           <nav className="mdl-navigation">
-            <a className="mdl-navigation__link" href="">Link</a>
-            <a className="mdl-navigation__link" href="">Link</a>
-            <a className="mdl-navigation__link" href="">Link</a>
-            <a className="mdl-navigation__link" href="">Link</a>
+            <span className="mdl-layout-title">Outros eventos:</span>
+            {this.props.events.map((event, index) => {
+              return (
+                <a className="mdl-navigation__link" href="">{event.name}</a>
+              )
+            })}
           </nav>
         </div>
 
         <main className="mdl-layout__content">
-          <section className="mdl-layout__tab-panel is-active" id="scroll-tab-1">
-            <div className="page-content">
-              <Card />
-            </div>
-          </section>
-          <section className="mdl-layout__tab-panel" id="scroll-tab-2">
-            <div className="page-content">
-              <Card />
-            </div>
-          </section>
-          <section className="mdl-layout__tab-panel" id="scroll-tab-3">
-            <div className="page-content">
-              <Card />
-            </div>
-          </section>
-          <section className="mdl-layout__tab-panel" id="scroll-tab-4">
-            <div className="page-content"></div>
-          </section>
-          <section className="mdl-layout__tab-panel" id="scroll-tab-5">
-            <div className="page-content"></div>
-          </section>
-          <section className="mdl-layout__tab-panel" id="scroll-tab-6">
-            <div className="page-content"></div>
-          </section>
+          {this.props.currentEvent.schedules.map((schedule, index) => {
+            return (
+              <section key={index} className={"mdl-layout__tab-panel " + (index === 0 ? 'is-active' : '')} id={"scroll-tab-"+index}>
+                <div className="page-content">
+                  {schedule.areas.map((area, index) => {
+                    return <Card  key={index} schedule={schedule} area={area} />
+                  })}
+                </div>
+              </section>
+            )
+          })}
         </main>
       </div>
     );
