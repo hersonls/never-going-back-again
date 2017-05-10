@@ -14,7 +14,7 @@ class Card extends Component {
               return (
                 <li key={index} className="mdl-list__item mdl-list__item--three-line">
                   <span className="mdl-list__item-primary-content">
-                    <i className="material-icons mdl-list__item-avatar">person</i>
+                    <i className="material-icons mdl-list__item-avatar"></i>
                     <span>{moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('HH:mm')}</span>
                     <span className="mdl-list__item-text-body">
                       {item.name}
