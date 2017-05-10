@@ -6,15 +6,16 @@ constructor() {
   super();
 
   this.state = {
-    selected: null
+    isSelected: false
   }
 }
 
-  onClick(event) {
+  onClickHandler(event) {
     this.setState({
-      selected: "testing"
-    })
-    console.log(this.state.selected)
+      isSelected: true
+    });
+
+    console.log(this.state.isSelected)
   }
 
   render() {
@@ -27,9 +28,9 @@ constructor() {
           <ul className="demo-list-three mdl-list">
             {this.props.area.items.map((item, index) => {
               return (
-                <li key={index} className="mdl-list__item mdl-list__item--three-line" onClick={(event) => this.onClick(event)}>
+                <li key={index} className="mdl-list__item mdl-list__item--three-line" onClick={this.onClickHandler.bind(this)}>
                   <span className="mdl-list__item-primary-content">
-                    <i className="material-icons mdl-list__item-avatar"></i>
+                    <i className="material-icons mdl-list__item-avatar">person</i>
                     <span>{moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('HH:mm')}</span>
                     <span className="mdl-list__item-text-body">
                       {item.name}
