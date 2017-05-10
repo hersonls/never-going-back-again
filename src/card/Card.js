@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 import moment from 'moment';
 
 class Card extends Component {
+constructor() {
+  super();
+
+  this.state = {
+    selected: null
+  }
+}
+
+  onClick(event) {
+    this.setState({
+      selected: "testing"
+    })
+    console.log(this.state.selected)
+  }
+
   render() {
     return (
       <div className="mdl-card mdl-shadow--2dp">
@@ -12,7 +27,7 @@ class Card extends Component {
           <ul className="demo-list-three mdl-list">
             {this.props.area.items.map((item, index) => {
               return (
-                <li key={index} className="mdl-list__item mdl-list__item--three-line">
+                <li key={index} className="mdl-list__item mdl-list__item--three-line" onClick={(event) => this.onClick(event)}>
                   <span className="mdl-list__item-primary-content">
                     <i className="material-icons mdl-list__item-avatar"></i>
                     <span>{moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('HH:mm')}</span>
