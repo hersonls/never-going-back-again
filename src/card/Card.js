@@ -2,19 +2,37 @@ import React, { Component } from 'react';
 import moment from 'moment';
 
 class Card extends Component {
-constructor() {
-  super();
+  constructor() {
+    super();
 
-  this.state = {
-    selected: null
+    this.state = {
+      selected: null
+    }
   }
-}
 
   onClick(event) {
     this.setState({
       selected: "testing"
     })
     console.log(this.state.selected)
+  }
+
+  slugfy(str) {
+    str = str.replace(/^\s+|\s+$/g, ''); // trim
+    str = str.toLowerCase();
+    
+    // remove accents, swap ñ for n, etc
+    var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+    var to   = "aaaaeeeeiiiioooouuuunc------";
+    for (var i=0, l=from.length ; i<l ; i++) {
+      str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+    }
+
+    str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+      .replace(/\s+/g, '-') // collapse whitespace and replace by -
+      .replace(/-+/g, '-'); // collapse dashes
+
+    return str;
   }
 
   render() {
@@ -36,8 +54,8 @@ constructor() {
                     </span>
                   </span>
                   <span className="mdl-list__item-secondary-action">
-                    <label className="mdl-switch mdl-js-switch mdl-js-ripple-effect" htmlFor={"list-switch-" + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('HH-mm')}>
-                      <input type="checkbox" id={"list-switch-" + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('HH-mm')} className="mdl-switch__input"  />
+                    <label className="mdl-switch mdl-js-switch mdl-js-ripple-effect" htmlFor={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')}>
+                      <input type="checkbox" id={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')} className="mdl-switch__input"  />
                     </label>
                   </span>
                 </li>
