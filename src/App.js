@@ -4,8 +4,6 @@ import Header from './header/Header';
 
 import SCHEDULE_JSON from './schedule.json';
 
-console.log(SCHEDULE_JSON)
-
 class App extends Component {
   currentEvent;
   schedule = SCHEDULE_JSON;
