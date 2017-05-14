@@ -1,3 +1,4 @@
+/* close commented backslash hack */
 .page-content {
   padding: 10px 0;
 }
@@ -6,4 +7,29 @@
   width: auto;
   max-width: 90%;
   margin: 0 auto;
+}
+
+.mdl-list {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.mdl-list__item--three-line .mdl-list__item-text-body {
+  margin-left: 56px;
+  height: auto;
+
+}
+
+.mdl-list__item--three-line .mdl-list__item-primary-content {
+  height: auto;
+}
+
+.mdl-list__item--three-line {
+  height: auto; 
+  min-height: 80px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.mdl-list__item--three-line:last-child {
+  border-bottom: 0;
 }

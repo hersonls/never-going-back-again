@@ -26,12 +26,27 @@ class Header extends Component {
         </div>
 
         <main className="mdl-layout__content">
+          <section className={"mdl-layout__tab-panel " + (this.isFavoriteTab === true ? 'is-active' : '')} id="scroll-tab-favorites">
+            <div className="page-content">
+              <div className="mdl-card mdl-shadow--2dp">
+                <div className="mdl-card__title">
+                  <h2 className="mdl-card__title-text">Notificações</h2>
+                </div>
+
+                <div className="mdl-card__supporting-text">
+                  <p>Nenhum item selecionado para notificação.</p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+  
           {this.props.currentEvent.schedules.map((schedule, index) => {
             return (
               <section key={index} className={"mdl-layout__tab-panel " + (index === 0 ? 'is-active' : '')} id={"scroll-tab-"+index}>
                 <div className="page-content">
                   {schedule.areas.map((area, index) => {
-                    return <Card  key={index} schedule={schedule} area={area} />
+                    return <Card key={index} schedule={schedule} area={area} />
                   })}
                 </div>
               </section>

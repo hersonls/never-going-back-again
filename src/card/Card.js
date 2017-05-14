@@ -41,6 +41,7 @@ class Card extends Component {
         <div className="mdl-card__title">
           <h2 className="mdl-card__title-text">{this.props.area.name}</h2>
         </div>
+
         <div className="mdl-card__supporting-text">
           <ul className="demo-list-three mdl-list">
             {this.props.area.items.map((item, index) => {
@@ -53,7 +54,8 @@ class Card extends Component {
                       {item.name}
                     </span>
                   </span>
-                  <span className="mdl-list__item-secondary-action">
+                  <span className="mdl-list__item-secondary-action mdl-list__item-secondary-content">
+                    <span className="mdl-list__item-secondary-info">Notificar</span>
                     <label className="mdl-switch mdl-js-switch mdl-js-ripple-effect" htmlFor={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')}>
                       <input type="checkbox" id={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')} className="mdl-switch__input"  />
                     </label>
