@@ -6,16 +6,19 @@ constructor() {
   super();
 
   this.state = {
-    isSelected: false
+    isSelected: null
   }
 }
 
-  onClickHandler(event) {
+  onChange(event) {
+    // let value = event.target.value
+
     this.setState({
-      isSelected: true
+      isSelected: 'selected'
     });
 
-    console.log(this.state.isSelected)
+    console.log('sate=> ', this.state.isSelected)
+    console.log(event.target.value)
   }
 
   render() {
@@ -28,7 +31,7 @@ constructor() {
           <ul className="demo-list-three mdl-list">
             {this.props.area.items.map((item, index) => {
               return (
-                <li key={index} className="mdl-list__item mdl-list__item--three-line" onClick={this.onClickHandler.bind(this)}>
+                <li key={index} className="mdl-list__item mdl-list__item--three-line" onClick={(e) => this.onChange(e)}>
                   <span className="mdl-list__item-primary-content">
                     <i className="material-icons mdl-list__item-avatar">person</i>
                     <span>{moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('HH:mm')}</span>
