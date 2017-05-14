@@ -31,3 +31,8 @@ To build a git hub page:
 ## Customize for your conference
 
 To use in your conference, all you need is make a fork and change `src/schedule.json` file with your conference schedules.
+
+
+## Future features
+
+- Internationalization
