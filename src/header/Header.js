@@ -15,9 +15,8 @@ class Header extends Component {
         </header>
 
         <div className="mdl-layout__drawer">
-          <span className="mdl-layout-title">{this.props.currentEvent.name}</span>
+          <span className="mdl-layout-title">Eventos</span>
           <nav className="mdl-navigation">
-            <span className="mdl-layout-title">Outros eventos:</span>
             {this.props.events.map((event, index) => {
               return (
                 <a key={index} className="mdl-navigation__link" href="">{event.name}</a>
