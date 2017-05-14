@@ -6,19 +6,17 @@ class Card extends Component {
     super();
 
   this.state = {
-    isSelected: null
+    selectedItems: []
     }
   }
 
-  onChange(event) {
-    // let value = event.target.value
-
+  onChangeHandler(event) {
+    let currentSelected = this.state.selectedItems.slice();
+    currentSelected.push('did it work?');
     this.setState({
-      isSelected: 'selected'
-    });
-
-    console.log('sate=> ', this.state.isSelected)
-    console.log(event.target.value)
+      selectedItems: currentSelected
+    })
+    console.log('values => ', this.state.selectedItems)
   }
 
   slugfy(str) {
@@ -50,7 +48,7 @@ class Card extends Component {
           <ul className="demo-list-three mdl-list">
             {this.props.area.items.map((item, index) => {
               return (
-                <li key={index} className="mdl-list__item mdl-list__item--three-line" onClick={(e) => this.onChange(e)}>
+                <li key={index} className="mdl-list__item mdl-list__item--three-line" onChange={(e) => this.onChangeHandler(e)}>
                   <span className="mdl-list__item-primary-content">
                     <i className="material-icons mdl-list__item-avatar">person</i>
                     <span>{moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('HH:mm')}</span>
