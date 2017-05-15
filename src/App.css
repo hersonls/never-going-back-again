@@ -33,3 +33,10 @@
 .mdl-list__item--three-line:last-child {
   border-bottom: 0;
 }
+
+@media screen and (max-width: 1024px) {
+  .mdl-layout__tab-bar {
+      width: calc(100% - 120px);
+      padding: 0 0 0 60px;
+  }
+}

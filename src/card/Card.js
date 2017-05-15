@@ -57,7 +57,7 @@ class Card extends Component {
                     </span>
                   </span>
                   <span className="mdl-list__item-secondary-action mdl-list__item-secondary-content">
-                    <span className="mdl-list__item-secondary-info">Notificar</span>
+                    <span className="mdl-list__item-secondary-info">Favorito</span>
                     <label className="mdl-switch mdl-js-switch mdl-js-ripple-effect" htmlFor={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')}>
                       <input type="checkbox" id={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')} className="mdl-switch__input"  />
                     </label>
