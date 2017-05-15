@@ -15,9 +15,12 @@
 }
 
 .mdl-list__item--three-line .mdl-list__item-text-body {
-  margin-left: 56px;
   height: auto;
+  padding: 5px 0;
+}
 
+.mdl-list__item--with-image .mdl-list__item-text-body {
+  margin-left: 56px;
 }
 
 .mdl-list__item--three-line .mdl-list__item-primary-content {

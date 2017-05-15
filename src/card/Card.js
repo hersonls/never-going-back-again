@@ -48,9 +48,12 @@ class Card extends Component {
           <ul className="demo-list-three mdl-list">
             {this.props.area.items.map((item, index) => {
               return (
-                <li key={index} className="mdl-list__item mdl-list__item--three-line" onChange={(e) => this.onChangeHandler(e)}>
+                <li key={index} className={"mdl-list__item mdl-list__item--three-line" + (item.image ? 'mdl-list__item--with-image' : '')} onChange={(e) => this.onChangeHandler(e)}>
                   <span className="mdl-list__item-primary-content">
-                    <i className="material-icons mdl-list__item-avatar">person</i>
+                    {item.image && 
+                      <i className="material-icons mdl-list__item-avatar">person</i>
+                    }
+
                     <span>{moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('HH:mm')}</span>
                     <span className="mdl-list__item-text-body">
                       {item.name}
