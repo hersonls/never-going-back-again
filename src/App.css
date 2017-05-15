@@ -30,11 +30,27 @@
 .mdl-list__item--three-line {
   height: auto; 
   min-height: 80px;
+  padding: 10px;
   border-bottom: 1px solid #f2f2f2;
 }
 
 .mdl-list__item--three-line:last-child {
   border-bottom: 0;
+}
+
+.mdl-card__supporting-text {
+  padding: 10px;
+}
+
+.page-content .mdl-card {
+  margin-bottom: 20px;
+}
+
+.mdl-card__title {
+  background: #2196f3;
+  color: #fff;
+  padding: 40px 20px 10px;
+
 }
 
 @media screen and (max-width: 1024px) {
