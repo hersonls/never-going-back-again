@@ -12,11 +12,23 @@ class Card extends Component {
 
   onChangeHandler(event) {
     let currentSelected = this.state.selectedItems.slice();
-    currentSelected.push('did it work?');
-    this.setState({
-      selectedItems: currentSelected
-    })
-    console.log('values => ', this.state.selectedItems)
+    let selectorValue = event.target.checked;
+    let selectorKey = event.target.id;
+
+    if (selectorValue) {
+      this.addFav(selectorKey, selectorValue, currentSelected);
+    } else {
+      this.removeFav(selectorKey, selectorValue, currentSelected);
+    }
+
+  }
+
+  addFav(key, value, selectedItems) {
+    console.log('is checked')
+  }
+
+  removeFav(key, value, selectedItems) {
+    console.log('is not checked')
   }
 
   slugfy(str) {
@@ -48,7 +60,7 @@ class Card extends Component {
           <ul className="demo-list-three mdl-list">
             {this.props.area.items.map((item, index) => {
               return (
-                <li key={index} className={"mdl-list__item mdl-list__item--three-line" + (item.image ? 'mdl-list__item--with-image' : '')} onChange={(e) => this.onChangeHandler(e)}>
+                <li id={index} key={index} className={"mdl-list__item mdl-list__item--three-line" + (item.image ? 'mdl-list__item--with-image' : '')}>
                   <span className="mdl-list__item-primary-content">
                     {item.image && 
                       <i className="material-icons mdl-list__item-avatar">person</i>
@@ -62,7 +74,7 @@ class Card extends Component {
                   <span className="mdl-list__item-secondary-action mdl-list__item-secondary-content">
                     <span className="mdl-list__item-secondary-info">Favorito</span>
                     <label className="mdl-switch mdl-js-switch mdl-js-ripple-effect" htmlFor={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')}>
-                      <input type="checkbox" id={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')} className="mdl-switch__input"  />
+                      <input onChange={(e) => this.onChangeHandler(e)} type="checkbox" id={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')} className="mdl-switch__input"  />
                     </label>
                   </span>
                 </li>
