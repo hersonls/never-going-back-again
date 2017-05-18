@@ -36,3 +36,4 @@ To use in your conference, all you need is make a fork and change `src/schedule.
 ## Future features
 
 - Internationalization
+- Accessibility
