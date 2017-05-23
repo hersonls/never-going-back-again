@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import localStorageMixin from 'react-localstorage';
 
 class Card extends Component {
   constructor() {
@@ -11,7 +12,7 @@ class Card extends Component {
   }
 
   onChangeHandler(event) {
-    let currentSelected = this.state.selectedItems.slice();
+    let currentSelected = this.state.selectedItems;
     let selectorValue = event.target.checked;
     let selectorKey = event.target.id;
 
@@ -24,10 +25,20 @@ class Card extends Component {
   }
 
   addFav(key, value, selectedItems) {
-    console.log('is checked')
+    let tempFav = selectedItems.slice();
+    let listLentgh = tempFav.length;
+
+    for (let index = 0; index < listLentgh; index++) {
+      tempFav.push({key, value});
+
+    }
+
+    console.log('length of the array=>', listLentgh)
+    console.log('selected items=>', selectedItems);
   }
 
   removeFav(key, value, selectedItems) {
+    // let listLentgh = selectedItems.length;
     console.log('is not checked')
   }
 
