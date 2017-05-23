@@ -4327,6 +4327,10 @@ react-dom@^15.2.1:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
+react-localstorage@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-localstorage/-/react-localstorage-0.3.1.tgz#73b1d0622863eaff780a27f27004a3c0684d403b"
+
 react-scripts@^0.9.5:
   version "0.9.5"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-0.9.5.tgz#e9f05c8427e27131662a9b9d7a9786d1ff16bb3f"
@@ -5410,13 +5414,9 @@ whatwg-encoding@^1.0.1:
   dependencies:
     iconv-lite "0.4.13"
 
-whatwg-fetch@2.0.2:
+whatwg-fetch@2.0.2, whatwg-fetch@>=0.10.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.2.tgz#fe294d1d89e36c5be8b3195057f2e4bc74fc980e"
-
-whatwg-fetch@>=0.10.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-1.0.0.tgz#01c2ac4df40e236aaa18480e3be74bd5c8eb798e"
 
 whatwg-url@^4.3.0:
   version "4.8.0"
