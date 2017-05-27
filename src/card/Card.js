@@ -1,45 +1,36 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import localStorageMixin from 'react-localstorage';
+
+// TODO: remove localStorage library from dev dependencies
 
 class Card extends Component {
-  constructor() {
-    super();
-
-  this.state = {
-    selectedItems: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedItems: JSON.parse(localStorage.getItem('selected')) || [],
+      items: Object.values(this.props.area.items)
     }
-  }
+}
 
   onChangeHandler(event) {
-    let currentSelected = this.state.selectedItems;
-    let selectorValue = event.target.checked;
+    let selectorValue = event.target.value;
     let selectorKey = event.target.id;
+    let isChecked = event.target.checked;
 
-    if (selectorValue) {
-      this.addFav(selectorKey, selectorValue, currentSelected);
+    if (isChecked) {
+      this.addItem(selectorKey, selectorValue, this.state.selectedItems);
     } else {
-      this.removeFav(selectorKey, selectorValue, currentSelected);
+      this.removeItem(selectorKey, selectorValue, this.state.selectedItems);
     }
 
   }
 
-  addFav(key, value, selectedItems) {
-    let tempFav = selectedItems.slice();
-    let listLentgh = tempFav.length;
-
-    for (let index = 0; index < listLentgh; index++) {
-      tempFav.push({key, value});
-
-    }
-
-    console.log('length of the array=>', listLentgh)
-    console.log('selected items=>', selectedItems);
+  addItem(key, value, selectedItems) { 
+    console.log('is checked', key, value, selectedItems);
   }
 
-  removeFav(key, value, selectedItems) {
-    // let listLentgh = selectedItems.length;
-    console.log('is not checked')
+  removeItem(key, value, selectedItems) {
+    console.log('is not checked', key, value, selectedItems);
   }
 
   slugfy(str) {
@@ -83,7 +74,7 @@ class Card extends Component {
                     </span>
                   </span>
                   <span className="mdl-list__item-secondary-action mdl-list__item-secondary-content">
-                    <span className="mdl-list__item-secondary-info">Favorito</span>
+                    <span className="mdl-list__item-secondary-info">Adicionar</span>
                     <label className="mdl-switch mdl-js-switch mdl-js-ripple-effect" htmlFor={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')}>
                       <input onChange={(e) => this.onChangeHandler(e)} type="checkbox" id={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')} className="mdl-switch__input"  />
                     </label>
