@@ -10,8 +10,7 @@
   "dependencies": {
     "moment": "^2.18.1",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1",
-    "react-localstorage": "^0.3.1"
+    "react-dom": "^15.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

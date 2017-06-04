@@ -1,196 +1,211 @@
 {
-	"events": [
+  "events":[
     {
-  		"name": "Python Nordeste 2017",
-  		"description": "A Python Nordeste é o maior encontro da região nordeste para a comunidade Python, que ocorre anualmente em cidades do nordeste do Brasil e está na sua quinta edição.",
-  		"start_date": "2017/06/08",
-  		"end_date": "2017/06/10",
-  		"schedules": [{
-  				"date": "2017/06/08",
-  				"areas": [{
-  						"name": "Sala 1",
-  						"items": [{
-  								"time": "09:00:00",
-  								"name": "Tutorial 1",
-
-  								"icon": ""
-  							},
-  							{
-  								"time": "14:00:00",
-  								"name": "Tutorial 2",
-
-  								"icon": ""
-  							}
-  						]
-  					},
-  					{
-  						"name": "Sala 2",
-  						"items": [{
-  								"time": "09:00:00",
-  								"name": "Tutorial 1",
-
-  								"icon": ""
-  							},
-  							{
-  								"time": "14:00:00",
-  								"name": "Tutorial 2",
-
-  								"icon": ""
-  							}
-  						]
-  					}
-  				]
-  			},
-  			{
-  				"date": "2017/06/09",
-  				"areas": [{
-  					"name": "Sala 1",
-  					"items": [{
-  							"time": "08:00:00",
-  							"name": "Credenciamento"
-  						},
-  						{
-  							"time": "09:00:00",
-  							"name": "Keynote - Andrews Medina"
-  						},
-  						{
-  							"time": "10:00:00",
-  							"name": "Wrapping C libraries into Python interfaces - Gustavo"
-  						},
-  						{
-  							"time": "10:30:00",
-  							"name": "Coffee Break"
-  						},
-  						{
-  							"time": "11:00:00",
-  							"name": "5 meses de Python: o que aprendi - Rebeca"
-  						},
-  						{
-  							"time": "11:30:00",
-  							"name": "Contribuir com o Django Framework é mais fácil do que você imagina! - Anderson"
-
-  						},
-  						{
-  							"time": "12:00:00",
-  							"name": "Almoço"
-
-  						},
-  						{
-  							"time": "14:00:00",
-  							"name": "Keynote"
-
-  						},
-  						{
-  							"time": "15:00:00",
-  							"name": "Aprendendo Machine learn com games , utilizando OpenAI gym - Felipe De Luca"
-
-  						},
-  						{
-  							"time": "15:30:00",
-  							"name": "Pensando e arquitetando Aplicações resilientes - Wilson"
-
-  						},
-  						{
-  							"time": "16:00:00",
-  							"name": "Coffee Break"
-
-  						},
-  						{
-  							"time": "16:30:00",
-  							"name": "Django's Club: Como NÃO fazer seu sistema de assinatura - Victor"
-
-  						},
-  						{
-  							"time": "17:00:00",
-  							"name": "Criando uma API para Whatshapp com Tornado e Yowsup - Elinaldo"
-
-  						},
-  						{
-  							"time": "17:30:00",
-  							"name": "Python e Machine Learning em uma Startup - Romulo"
-
-  						}
-  					]
-  				}]
-  			},
-  			{
-  				"date": "2017/06/10",
-  				"areas": [{
-  					"name": "Sala 1",
-  					"items": [{
-  							"time": "09:00:00",
-  							"name": "Keynote - Tatiana Al-chueyr Martins"
-
-  						},
-  						{
-  							"time": "10:00:00",
-  							"name": "[WEB] Live reload de código de aplicações Django - Andre Augusto"
-
-  						},
-  						{
-  							"time": "10:30:00",
-  							"name": "Coffee Break"
-
-  						},
-  						{
-  							"time": "11:00:00",
-  							"name": "Python e tipagem estática - Carlos"
-
-  						},
-  						{
-  							"time": "11:30:00",
-  							"name": "Kivy: Python no celular e em vários outros lugares! - Dukão"
-
-  						},
-  						{
-  							"time": "12:00:00",
-  							"name": "Almoço"
-
-  						},
-  						{
-  							"time": "14:00:00",
-  							"name": "Keynote - Seja feliz programando em Python - Fernando Masanori"
-
-  						},
-  						{
-  							"time": "15:00:00",
-  							"name": "Processo Seletivo de Empresas Gringas - Renzo"
-
-  						},
-  						{
-  							"time": "15:30:00",
-  							"name": "Foto Oficial"
-
-  						},
-  						{
-  							"time": "16:00:00",
-  							"name": "Coffee Break"
-
-  						},
-  						{
-  							"time": "16:30:00",
-  							"name": "In tests we trust: começando com TDD, mocks e mais - Ana Paula"
-
-  						},
-  						{
-  							"time": "17:00:00",
-  							"name": "Design de APIs Focado no usuário - Renato Oliveira"
-
-  						},
-  						{
-  							"time": "17:30:00",
-  							"name": "Lighting Talk"
-
-  						},
-  						{
-  							"time": "18:00:00",
-  							"name": "Encerramento"
-
-  						}
-  					]
-  				}]
-  			}
-  		]
+      "name":"Python Nordeste 2017",
+      "description":"A Python Nordeste é o maior encontro da região nordeste para a comunidade Python, que ocorre anualmente em cidades do nordeste do Brasil e está na sua quinta edição.",
+      "start_date":"2017/06/08",
+      "end_date":"2017/06/10",
+      "schedules":[
+        {
+          "date":"2017/06/08",
+          "areas":[
+            {
+              "name":"Sala 1",
+              "items":[
+                {
+                  "identifier":1,
+                  "time":"09:00:00",
+                  "name":"Tutorial 1",
+                  "icon":""
+                },
+                {
+                  "identifier":2,
+                  "time":"14:00:00",
+                  "name":"Tutorial 2",
+                  "icon":""
+                }
+              ]
+            },
+            {
+              "name":"Sala 2",
+              "items":[
+                {
+                  "identifier":3,
+                  "time":"09:00:00",
+                  "name":"Tutorial 1",
+                  "icon":""
+                },
+                {
+                  "identifier":4,
+                  "time":"14:00:00",
+                  "name":"Tutorial 2",
+                  "icon":""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "date":"2017/06/09",
+          "areas":[
+            {
+              "name":"Sala 1",
+              "items":[
+                {
+                  "identifier":5,
+                  "time":"08:00:00",
+                  "name":"Credenciamento"
+                },
+                {
+                  "identifier":6,
+                  "time":"09:00:00",
+                  "name":"Keynote - Andrews Medina"
+                },
+                {
+                  "identifier":7,
+                  "time":"10:00:00",
+                  "name":"Wrapping C libraries into Python interfaces - Gustavo"
+                },
+                {
+                  "identifier":8,
+                  "time":"10:30:00",
+                  "name":"Coffee Break"
+                },
+                {
+                  "identifier":9,
+                  "time":"11:00:00",
+                  "name":"5 meses de Python: o que aprendi - Rebeca"
+                },
+                {
+                  "identifier":10,
+                  "time":"11:30:00",
+                  "name":"Contribuir com o Django Framework é mais fácil do que você imagina! - Anderson"
+                },
+                {
+                  "identifier":11,
+                  "time":"12:00:00",
+                  "name":"Almoço"
+                },
+                {
+                  "identifier":12,
+                  "time":"14:00:00",
+                  "name":"Keynote"
+                },
+                {
+                  "identifier":13,
+                  "time":"15:00:00",
+                  "name":"Aprendendo Machine learn com games , utilizando OpenAI gym - Felipe De Luca"
+                },
+                {
+                  "identifier":14,
+                  "time":"15:30:00",
+                  "name":"Pensando e arquitetando Aplicações resilientes - Wilson"
+                },
+                {
+                  "identifier":15,
+                  "time":"16:00:00",
+                  "name":"Coffee Break"
+                },
+                {
+                  "identifier":16,
+                  "time":"16:30:00",
+                  "name":"Django's Club: Como NÃO fazer seu sistema de assinatura - Victor"
+                },
+                {
+                  "identifier":17,
+                  "time":"17:00:00",
+                  "name":"Criando uma API para Whatshapp com Tornado e Yowsup - Elinaldo"
+                },
+                {
+                  "identifier":18,
+                  "time":"17:30:00",
+                  "name":"Python e Machine Learning em uma Startup - Romulo"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "date":"2017/06/10",
+          "areas":[
+            {
+              "name":"Sala 1",
+              "items":[
+                {
+                  "identifier":19,
+                  "time":"09:00:00",
+                  "name":"Keynote - Tatiana Al-chueyr Martins"
+                },
+                {
+                  "identifier":20,
+                  "time":"10:00:00",
+                  "name":"[WEB] Live reload de código de aplicações Django - Andre Augusto"
+                },
+                {
+                  "identifier":21,
+                  "time":"10:30:00",
+                  "name":"Coffee Break"
+                },
+                {
+                  "identifier":22,
+                  "time":"11:00:00",
+                  "name":"Python e tipagem estática - Carlos"
+                },
+                {
+                  "identifier":23,
+                  "time":"11:30:00",
+                  "name":"Kivy: Python no celular e em vários outros lugares! - Dukão"
+                },
+                {
+                  "identifier":24,
+                  "time":"12:00:00",
+                  "name":"Almoço"
+                },
+                {
+                  "identifier":25,
+                  "time":"14:00:00",
+                  "name":"Keynote - Seja feliz programando em Python - Fernando Masanori"
+                },
+                {
+                  "identifier":26,
+                  "time":"15:00:00",
+                  "name":"Processo Seletivo de Empresas Gringas - Renzo"
+                },
+                {
+                  "identifier":27,
+                  "time":"15:30:00",
+                  "name":"Foto Oficial"
+                },
+                {
+                  "identifier":28,
+                  "time":"16:00:00",
+                  "name":"Coffee Break"
+                },
+                {
+                  "identifier":29,
+                  "time":"16:30:00",
+                  "name":"In tests we trust: começando com TDD, mocks e mais - Ana Paula"
+                },
+                {
+                  "identifier":30,
+                  "time":"17:00:00",
+                  "name":"Design de APIs Focado no usuário - Renato Oliveira"
+                },
+                {
+                  "identifier":31,
+                  "time":"17:30:00",
+                  "name":"Lighting Talk"
+                },
+                {
+                  "identifier":32,
+                  "time":"18:00:00",
+                  "name":"Encerramento"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

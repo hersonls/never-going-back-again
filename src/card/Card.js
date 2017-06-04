@@ -1,54 +1,45 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
-// TODO: remove localStorage library from dev dependencies
-
 class Card extends Component {
   constructor(props) {
     super(props);
+
+    console.log(props);
+
     this.state = {
-      selectedItems: JSON.parse(localStorage.getItem('selected')) || [],
+      selectedItems: localStorage.getItem('selected') ? JSON.parse(localStorage.getItem('selected')) : [],
       items: Object.values(this.props.area.items)
     }
 }
 
   onChangeHandler(event) {
-    let selectorValue = event.target.value;
-    let selectorKey = event.target.id;
-    let isChecked = event.target.checked;
+    let item = this.state.items.find(item => item.identifier == event.target.id),
+        selectedItems = this.state.selectedItems.slice();
 
-    if (isChecked) {
-      this.addItem(selectorKey, selectorValue, this.state.selectedItems);
+    if (event.target.checked) {
+      this.addItem(item, selectedItems);
     } else {
-      this.removeItem(selectorKey, selectorValue, this.state.selectedItems);
+      this.removeItem(item, selectedItems);
     }
 
   }
 
-  addItem(key, value, selectedItems) { 
-    console.log('is checked', key, value, selectedItems);
+  updateStorage(selectedItems) {
+    localStorage.setItem('selected', JSON.stringify(selectedItems));
+    this.setState({'selectedItems': selectedItems});
   }
 
-  removeItem(key, value, selectedItems) {
-    console.log('is not checked', key, value, selectedItems);
+  addItem(item, selectedItems) {
+    if (selectedItems.find(i => i.identifier == item.identifier))  return
+
+    selectedItems.push(item);
+    this.updateStorage(selectedItems);
   }
 
-  slugfy(str) {
-    str = str.replace(/^\s+|\s+$/g, ''); // trim
-    str = str.toLowerCase();
-    
-    // remove accents, swap ñ for n, etc
-    var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
-    var to   = "aaaaeeeeiiiioooouuuunc------";
-    for (var i=0, l=from.length ; i<l ; i++) {
-      str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-    }
-
-    str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
-      .replace(/\s+/g, '-') // collapse whitespace and replace by -
-      .replace(/-+/g, '-'); // collapse dashes
-
-    return str;
+  removeItem(item, selectedItems) {
+    selectedItems = selectedItems.filter(i => i.identifier != item.identifier);
+    this.updateStorage(selectedItems);
   }
 
   render() {
@@ -62,21 +53,21 @@ class Card extends Component {
           <ul className="demo-list-three mdl-list">
             {this.props.area.items.map((item, index) => {
               return (
-                <li id={index} key={index} className={"mdl-list__item mdl-list__item--three-line" + (item.image ? 'mdl-list__item--with-image' : '')}>
+                <li key={`card-${item.identifier}`} className={`mdl-list__item mdl-list__item--three-line ${(item.image ? 'mdl-list__item--with-image' : '')}`}>
                   <span className="mdl-list__item-primary-content">
-                    {item.image && 
+                    {item.image &&
                       <i className="material-icons mdl-list__item-avatar">person</i>
                     }
 
-                    <span>{moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('HH:mm')}</span>
+                    <span>{moment(item.time, 'hh:mm').format('HH:mm')}</span>
                     <span className="mdl-list__item-text-body">
                       {item.name}
                     </span>
                   </span>
                   <span className="mdl-list__item-secondary-action mdl-list__item-secondary-content">
                     <span className="mdl-list__item-secondary-info">Adicionar</span>
-                    <label className="mdl-switch mdl-js-switch mdl-js-ripple-effect" htmlFor={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')}>
-                      <input onChange={(e) => this.onChangeHandler(e)} type="checkbox" id={"list-switch-" + this.slugfy(this.props.area.name) + '-' + moment(this.props.schedule.date + ' ' + item.time, 'YYYY/MM/DD HH:mm:SS').format('YYYY-MM-DD--HH-mm')} className="mdl-switch__input"  />
+                    <label className="mdl-switch mdl-js-switch mdl-js-ripple-effect" htmlFor={item.identifier}>
+                      <input onChange={this.onChangeHandler.bind(this)} type="checkbox" id={item.identifier} className="mdl-switch__input"  />
                     </label>
                   </span>
                 </li>
