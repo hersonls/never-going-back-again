@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 class Card extends Component {
   render() {
@@ -26,7 +27,7 @@ class Card extends Component {
                   <span className="mdl-list__item-secondary-action mdl-list__item-secondary-content">
                     <span className="mdl-list__item-secondary-info">Adicionar</span>
                     <label className="mdl-switch mdl-js-switch mdl-js-ripple-effect" htmlFor={item.identifier}>
-                      <input onChange={this.onChangeHandler.bind(this)} type="checkbox" id={item.identifier} className="mdl-switch__input"  />
+                      <input type="checkbox" id={item.identifier} className="mdl-switch__input"  />
                     </label>
                   </span>
                 </li>

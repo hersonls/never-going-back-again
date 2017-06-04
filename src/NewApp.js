@@ -9,8 +9,9 @@ import SCHEDULE_JSON from './schedule.json';
 
 class App extends Component {
   constructor(props) {
-    let currentEvent,
-        schedule = SCHEDULE_JSON;
+    super(props);
+
+    this.schedule = SCHEDULE_JSON;
 
     if (this.schedule.events.length > 0) {
       this.currentEvent = this.schedule.events[0];
@@ -21,9 +22,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-          <Header />
-          <Sidebar />
-          <Schedule />
+          <Header currentEvent={this.currentEvent} />
+          <Sidebar events={this.schedule.events} />
+          <Schedule schedules={this.currentEvent.schedules} />
         </div>
       </div>
     )

@@ -8,7 +8,6 @@ class Header extends Component {
         <div className="mdl-layout__header-row">
           <span className="mdl-layout-title">{this.props.currentEvent.name}</span>
         </div>
-
         <Tabs schedules={this.props.currentEvent.schedules} />
       </header>
     )

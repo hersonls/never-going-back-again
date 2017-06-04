@@ -1,6 +1,7 @@
 {
   "events":[
     {
+      "identifier":1,
       "name":"Python Nordeste 2017",
       "description":"A Python Nordeste é o maior encontro da região nordeste para a comunidade Python, que ocorre anualmente em cidades do nordeste do Brasil e está na sua quinta edição.",
       "start_date":"2017/06/08",
