@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Tabs from './NewTabs';
+import Tabs from '../tabs/NewTabs';
 
 class Header extends Component {
   render() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from './NewCard';
+import Card from '../card/NewCard';
 
 class Schedule extends Component {
   render() {

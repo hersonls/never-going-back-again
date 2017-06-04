@@ -1,9 +1,9 @@
 import './App.css';
 import React, { Component } from 'react';
 
-import Header from './NewHeader';
-import Sidebar from './Sidebar';
-import Schedule from './Schedule';
+import Header from './header/NewHeader';
+import Sidebar from './sidebar/Sidebar';
+import Schedule from './schedule/Schedule';
 
 import SCHEDULE_JSON from './schedule.json';
 
