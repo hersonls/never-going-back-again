@@ -12,7 +12,7 @@ class Schedule extends Component {
                      className={`mdl-layout__tab-panel ${(index === 0 ? 'is-active' : '')}`}>
               <div className="page-content">
                 {schedule.areas.map((area, index) => {
-                  return <Card key={index} schedule={schedule} area={area} />
+                  return <Card key={index} schedule={schedule} area={area} onFavorite={this.props.favoriteHandler} />
                 })}
               </div>
             </section>

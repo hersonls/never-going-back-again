@@ -27,7 +27,7 @@ class Card extends Component {
                   <span className="mdl-list__item-secondary-action mdl-list__item-secondary-content">
                     <span className="mdl-list__item-secondary-info">Adicionar</span>
                     <label className="mdl-switch mdl-js-switch mdl-js-ripple-effect" htmlFor={item.identifier}>
-                      <input type="checkbox" id={item.identifier} className="mdl-switch__input"  />
+                      <input type="checkbox" id={item.identifier} className="mdl-switch__input" checked={item.favorite} onChange={this.props.onFavorite}/>
                     </label>
                   </span>
                 </li>
