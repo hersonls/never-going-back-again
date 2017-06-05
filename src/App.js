@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 
-import Header from './header/NewHeader';
+import Header from './header/Header';
 import Sidebar from './sidebar/Sidebar';
 import Schedule from './schedule/Schedule';
 
@@ -65,6 +65,7 @@ class App extends Component {
       });
     });
     this.setState({'currentEvent': currentEvent});
+    this.forceUpdate();
   }
 
   render() {
