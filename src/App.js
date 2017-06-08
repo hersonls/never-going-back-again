@@ -24,7 +24,7 @@ class App extends Component {
           event.schedules.map((schedule) => {
             schedule.areas.map((area) => {
               area.items.map((item) => {
-                if (item.identifier == favorited.identifier) {
+                if (item.identifier === favorited.identifier) {
                   item['favorite'] = true;
                 }
               });
@@ -41,29 +41,29 @@ class App extends Component {
   }
 
   setFavorite(e) {
-    const isChecked = e.target.checked,
-          identifier = e.target.id;
-
+    const identifier = e.target.id;
     let favorites = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : [];
 
     if (e.target.checked) {
       favorites.push({'identifier': identifier});
     } else {
-      favorites = favorites.filter((favorited) => favorited.identifier != identifier);
+      favorites = favorites.filter((favorited) => favorited.identifier !== identifier);      
     }
 
     localStorage.setItem('favorites', JSON.stringify(favorites));
 
     let currentEvent = Object.assign({}, this.state.currentEvent);
+
     currentEvent.schedules.map((schedule) => {
       schedule.areas.map((area) => {
         area.items.map((item) => {
-          if (item.identifier == identifier) {
+          if (item.identifier === identifier) {
             item['favorite'] = e.target.checked;
           }
         });
       });
     });
+
     this.setState({'currentEvent': currentEvent});
     this.forceUpdate();
   }
